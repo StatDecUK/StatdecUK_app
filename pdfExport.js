@@ -1,0 +1,72 @@
+
+Action: file_editor create /app/frontend/src/lib/pdfExport.js --file-text "import html2pdf from \"html2pdf.js\";
+
+/**
+ * Generate a multi-page PDF from one or more HTML element references.
+ * Each element becomes its own page (A4).
+ * @param {Array<HTMLElement>} elements
+ * @param {string} filename
+ */
+export async function downloadPdf(elements, filename = \"statutory-declaration.pdf\") {
+  if (!elements || elements.length === 0) return;
+  // Use html2pdf for the first, then merge subsequent via jsPDF chain
+  const first = elements[0];
+  const worker = html2pdf()
+    .from(first)
+    .set({
+      margin: [12, 12, 12, 12],
+      filename,
+      image: { type: \"jpeg\", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: \"#ffffff\" },
+      jsPDF: { unit: \"mm\", format: \"a4\", orientation: \"portrait\" },
+      pagebreak: { mode: [\"css\", \"legacy\"] },
+    });
+
+  // Build jsPDF instance manually, add each element as a new page
+  const pdf = await worker.toPdf().get(\"pdf\");
+  const html2canvas = (await import(\"html2canvas\")).default;
+  for (let i = 1; i < elements.length; i++) {
+    const el = elements[i];
+    const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: \"#ffffff\" });
+    const imgData = canvas.toDataURL(\"image/jpeg\", 0.98);
+    pdf.addPage(\"a4\", \"portrait\");
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const margin = 12;
+    const usableWidth = pageWidth - margin * 2;
+    const imgHeight = (canvas.height * usableWidth) / canvas.width;
+    pdf.addImage(
+      imgData,
+      \"JPEG\",
+      margin,
+      margin,
+      usableWidth,
+      Math.min(imgHeight, pageHeight - margin * 2)
+    );
+  }
+  pdf.save(filename);
+}
+
+/**
+ * Print one or more elements by cloning them into a hidden print container
+ * and using the browser's print dialog.
+ */
+export function printElements(elements) {
+  const printArea = document.getElementById(\"print-area\");
+  if (!printArea) return;
+  printArea.innerHTML = \"\";
+  elements.forEach((el, idx) => {
+    const clone = el.cloneNode(true);
+    clone.classList.add(\"print-page\");
+    if (idx > 0) clone.classList.add(\"print-break\");
+    printArea.appendChild(clone);
+  });
+  document.body.classList.add(\"printing\");
+  window.print();
+  setTimeout(() => {
+    document.body.classList.remove(\"printing\");
+    printArea.innerHTML = \"\";
+  }, 500);
+}
+"
+Observation: Create successful: /app/frontend/src/lib/pdfExport.js

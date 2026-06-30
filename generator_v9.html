@@ -1,0 +1,489 @@
+
+Action: file_editor view /app/generator_v9.html
+Observation: [Showing lines 1-485 of 485 total] /app/generator_v9.html:
+1|<!DOCTYPE html>
+2|<html lang="en-GB">
+3|<head>
+4|    <meta charset="UTF-8">
+5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|    <title>Master Statutory Declaration & Exhibit Generator Suite</title>
+7|    <style>
+8|        :root {
+9|            --primary: #1d3557;
+10|            --secondary: #457b9d;
+11|            --bg: #f8f9fa;
+12|            --card-bg: #ffffff;
+13|            --text: #2b2b2b;
+14|            --accent: #e63946;
+15|        }
+16|        body {
+17|            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+18|            line-height: 1.6;
+19|            color: var(--text);
+20|            background-color: var(--bg);
+21|            margin: 0;
+22|            padding: 20px;
+23|        }
+24|        .container {
+25|            max-width: 1200px;
+26|            margin: 0 auto;
+27|        }
+28|        h1, h2 {
+29|            color: var(--primary);
+30|            margin-top: 0;
+31|        }
+32|        header {
+33|            text-align: center;
+34|            margin-bottom: 30px;
+35|            border-bottom: 3px solid var(--primary);
+36|            padding-bottom: 10px;
+37|        }
+38|        .grid {
+39|            display: grid;
+40|            grid-template-columns: 1fr 1fr;
+41|            gap: 20px;
+42|        }
+43|        @media (max-width: 992px) {
+44|            .grid { grid-template-columns: 1fr; }
+45|        }
+46|        .card {
+47|            background: var(--card-bg);
+48|            padding: 20px;
+49|            border-radius: 8px;
+50|            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+51|            margin-bottom: 20px;
+52|        }
+53|        .form-group {
+54|            margin-bottom: 15px;
+55|        }
+56|        label {
+57|            display: block;
+58|            font-weight: bold;
+59|            margin-bottom: 5px;
+60|            color: var(--primary);
+61|        }
+62|        input, textarea, select {
+63|            width: 100%;
+64|            padding: 10px;
+65|            border: 1px solid #ccc;
+66|            border-radius: 4px;
+67|            box-sizing: border-box;
+68|            font-size: 14px;
+69|        }
+70|        textarea { resize: vertical; }
+71|        .output-box {
+72|            background: #fff;
+73|            border: 2px dashed var(--secondary);
+74|            padding: 30px;
+75|            font-family: "Courier New", Courier, monospace;
+76|            white-space: pre-wrap;
+77|            margin-top: 15px;
+78|            position: relative;
+79|        }
+80|        .btn {
+81|            background-color: var(--secondary);
+82|            color: white;
+83|            padding: 12px 20px;
+84|            border: none;
+85|            border-radius: 4px;
+86|            cursor: pointer;
+87|            font-weight: bold;
+88|            transition: background 0.2s;
+89|        }
+90|        .btn:hover { background-color: var(--primary); }
+91|        .print-btn { background-color: #2a9d8f; float: right; }
+92|        .print-btn:hover { background-color: #1e7164; }
+93|        .clear { clear: both; }
+94|        .info-pill {
+95|            background-color: #e2eafc;
+96|            color: #1d3557;
+97|            padding: 10px;
+98|            border-radius: 4px;
+99|            font-size: 13px;
+100|            margin-top: 5px;
+101|            border-left: 4px solid var(--secondary);
+102|        }
+103|        @media print {
+104|            body { background: white; padding: 0; }
+105|            .no-print { display: none !important; }
+106|            .card { box-shadow: none; padding: 0; margin: 0; }
+107|            .output-box { border: none; padding: 0; margin: 0; }
+108|            .page-break { page-break-before: always; }
+109|        }
+110|    </style>
+111|</head>
+112|<body>
+113|
+114|<div class="container">
+115|    <header class="no-print">
+116|        <h1>Master Statutory Declaration Tool Suite</h1>
+117|        <p>Conforms exactly to the Statutory Declarations Act 1835 — Fully Automated Dropdown Matrix Edition</p>
+118|    </header>
+119|
+120|    <div class="grid no-print">
+121|        <!-- Section 1: Core Parameters Selection -->
+122|        <div class="card">
+123|            <h2>1. Type & Profile Specifications</h2>
+124|            
+125|            <div class="form-group">
+126|                <label for="templateSelect">Select Statutory Declaration Type:</label>
+127|                <select id="templateSelect" onchange="syncSelectedType();">
+128|                    <optgroup label="Core 10 Common Types">
+129|                        <option value="1">Type 1: Declaration of Solvency</option>
+130|                        <option value="2" selected>Type 2: Landlord and Tenant Act 1954</option>
+131|                        <option value="3">Type 3: Change of Name</option>
+132|                        <option value="4">Type 4: Lost or Missing Documents</option>
+133|                        <option value="5">Type 5: Single Status / Freedom to Marry</option>
+134|                        <option value="6">Type 6: Identity or Marital Status</option>
+135|                        <option value="7">Type 7: Adverse Possession (Squatter's Rights)</option>
+136|                        <option value="8">Type 8: Right of Way Property Access</option>
+137|                        <option value="9">Type 9: Financial Affidavits and Support</option>
+138|                        <option value="10">Type 10: Confirmation of Cohabitation or Dependency</option>
+139|                    </optgroup>
+140|                    <optgroup label="Additional Regulatory & Custom Types">
+141|                        <option value="11">Type 11: Tenancy Deposit Scheme (TDS) Claim</option>
+142|                        <option value="12">Type 12: Gifted Deposit / Source of Funds</option>
+143|                        <option value="13">Type 13: Transfer at Undervalue / Insolvency Protection</option>
+144|                        <option value="14">Type 14: Small Estates Probate Asset Release</option>
+145|                        <option value="15">Type 15: Gender Recognition Certificate (GRC)</option>
+146|                        <option value="16">Type 16: Patent / Intellectual Property Originality</option>
+147|                        <option value="17">Type 17: Import, Export, and Customs Declaration</option>
+148|                        <option value="18">Type 18: Professional Admission & Fitness to Practise</option>
+149|                    </optgroup>
+150|                    <optgroup label="HMCTS Court Form Wording">
+151|                        <option value="19">Court Form: Traffic Enforcement Centre (PE2/PE3 Bundle)</option>
+152|                    </optgroup>
+153|                </select>
+154|                <div id="apostilleInfo" class="info-pill"></div>
+155|            </div>
+156|
+157|            <div class="form-group">
+158|                <label for="fullName">Declarant Full Name:</label>
+159|                <input type="text" id="fullName" value="John Doe" oninput="updateDocuments()">
+160|            </div>
+161|            <div class="form-group">
+162|                <label for="address">Full Residential Address:</label>
+163|                <input type="text" id="address" value="123 High Street, Cardiff, CF10 1FF" oninput="updateDocuments()">
+164|            </div>
+165|            <div class="form-group">
+166|                <label for="occupation">Occupation / Profession:</label>
+167|                <input type="text" id="occupation" value="Company Director" oninput="updateDocuments()">
+168|            </div>
+169|        </div>
+170|
+171|        <!-- Section 2: Upgraded Dynamic Selector & Overrides Box -->
+172|        <div class="card">
+173|            <h2>2. Exhibit Mapping & Text Overrides</h2>
+174|            
+175|            <div class="form-group">
+176|                <label for="matrixSelect">Official Attachment Matrix Profile (Selectable Option):</label>
+177|                <select id="matrixSelect" onchange="syncMatrixSelection();">
+178|                    <!-- Automatically built on runtime array pass -->
+179|                </select>
+180|            </div>
+181|
+182|            <div class="grid" style="grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:0;">
+183|                <div class="form-group">
+184|                    <label for="exLetter">Target Exhibit Sheet Letter:</label>
+185|                    <select id="exLetter" onchange="syncExhibitLetterChange();">
+186|                        <option value="A">Exhibit A</option>
+187|                        <option value="B">Exhibit B</option>
+188|                        <option value="C">Exhibit C</option>
+189|                        <option value="D">Exhibit D</option>
+190|                    </select>
+191|                </div>
+192|                <div class="form-group">
+193|                    <label for="pageCount">Total Exhibit Pages:</label>
+194|                    <input type="number" id="pageCount" value="4" min="1" oninput="updateDocuments()">
+195|                </div>
+196|            </div>
+197|
+198|            <div class="form-group">
+199|                <label for="exDescSelect">Exhibit Cover Item Description (Selectable Option):</label>
+200|                <select id="exDescSelect" onchange="syncCoverDescriptionSelection();">
+201|                    <!-- Automatically built on runtime array pass -->
+202|                </select>
+203|            </div>
+204|
+205|            <div class="form-group">
+206|                <label for="statementBody">Custom Statement Text (Direct Wording Box — Self-Populating):</label>
+207|                <textarea id="statementBody" rows="5" oninput="updateDocuments()"></textarea>
+208|            </div>
+209|        </div>
+210|    </div>
+211|
+212|    <!-- Section 3: Live Output Panels Bundle -->
+213|    <div class="card">
+214|        <h2 class="no-print">3. Active Production Output Panel</h2>
+215|        <p class="no-print" style="font-size:13px;">Review the generated contents below. Use the button to print clean, unshaded hard copies directly onto separate A4 sheets.</p>
+216|        
+217|        <button class="btn print-btn no-print" onclick="window.print()">Print Legal Package</button>
+218|        <div class="clear"></div>
+219|
+220|        <!-- Live Content Injection Targets -->
+221|        <div id="declarationOutput" class="output-box"></div>
+222|        <div id="exhibitOutput" class="output-box page-break"></div>
+223|    </div>
+224|</div>
+225|
+226|<script>
+227|// Embedded Complete Legal Database Configuration Matrix
+228|const legalDatabase = {
+229|    "1": {
+230|        apostille: "International Apostille Required: No (Submitted to UK Companies House).",
+231|        matrix: "Exhibit A: Prescribed Form LIQ02 (Statement of Assets & Liabilities). No other exhibits needed.",
+232|        exhibits: { "A": "A true statement of the company’s assets and liabilities as of this date, produced in the prescribed Form LIQ02." },
+233|wording: "I am a Director of [Company Name Ltd], Company Number [Insert Number]. I have made a full inquiry into the affairs of this company, and having done so, I have formed the opinion that this company will be able to pay its debts in full, together with interest at the official rate, within a period of 12 months from the commencement of the winding up. I append a true statement of the company’s assets and liabilities as of this date, produced in the prescribed Form LIQ02, which is now produced and shown to me marked Exhibit 'A'."
+234|},
+235|"2": {
+236|apostille: "International Apostille Required: No (Domestic commercial lease operations).",
+237|matrix: "Exhibit A: Formal Warning Notice served by landlord. \nExhibit B: Proposed structural commercial lease agreement.",
+238|exhibits: {
+239|"A": "A true copy of the formal Warning Notice served upon the Declarant by the Landlord.",
+240|"B": "A true copy of the proposed structural lease agreement for the commercial premises."
+241|},
+242|wording: "The Landlord, [Landlord Name], intends to grant me a tenancy of premises at [Property Address] for a term commencing on [Date]. I propose to enter into an agreement with the Landlord that the provisions of sections 24 to 28 of the Landlord and Tenant Act 1954 shall be excluded in relation to this tenancy. I confirm that the Landlord served on me a formal Warning Notice before I became contractually bound to enter into the tenancy. A copy of the formal Warning Notice is now produced and shown to me marked Exhibit 'A', and a copy of the proposed structural lease agreement is now produced and shown to me marked Exhibit 'B'."
+243|},
+244|"3": {
+245|apostille: "International Apostille Required: Only if updating foreign registries / dual citizenship passports.",
+246|matrix: "Exhibit A: Existing official photo identification (Passport / Driving Licence).",
+247|exhibits: { "A": "A certified copy of the Declarant's existing official photographic identification records." },
+248|wording: "For and on behalf of myself, I absolutely renounce and abandon the use of my former name [Old Full Name] and assume the new name [New Full Name]. I declare that I will at all times hereafter in all records, deeds, and dealings use and sign the name [New Full Name] exclusively. I expressly authorise all persons at all times to designate and address me by such assumed name, as supported by a copy of my existing official photographic identification now produced and shown to me marked Exhibit 'A'."
+249|},
+250|"4": {
+251|apostille: "International Apostille Required: No (Submitted to domestic UK financial institutions).",
+252|matrix: "Exhibit A: Historical institutional correspondence. \nExhibit B: Historical account statement records.",
+253|exhibits: {
+254|"A": "True copies of historical institutional correspondence proving ownership of the lost asset.",
+255|"B": "True copies of the historical account statement records proving ownership of the lost asset."
+256|},
+257|wording: "I am the legal owner of [Name of Document, e.g., Share Certificate No. 123 for X PLC]. The said document has been lost, mislaid, or accidentally destroyed, and to the best of my knowledge and belief, it is not in the possession of any other person. I have made exhaustive searches for the document but have been unable to locate it. In support of my ownership, copies of relevant institutional correspondence are now produced and shown to me marked Exhibit 'A', and copies of my historical account statement records are now produced and shown to me marked Exhibit 'B'."
+258|},
+259|"5": {
+260|apostille: "International Apostille Required: Yes (Always, as it is strictly used by foreign embassies/authorities abroad).",
+261|matrix: "Exhibit A: Certified copy of Decree Absolute or relevant Death Certificate (if previously married).",
+262|exhibits: { "A": "A certified copy of the Declarant's official Decree Absolute or relevant Death Certificate." },
+263|wording: "I am a British Citizen holding Passport Number [Insert Number] and am currently residing at this address. I am legally free to enter into a marriage contract with [Fiancé's Full Name] under the laws of the United Kingdom, and there is no legal impediment to our union. I was previously married but that marriage was legally dissolved, a certified copy of my Decree Absolute is now produced and shown to me marked Exhibit 'A'."
+264|},
+265|"6": {
+266|apostille: "International Apostille Required: Only if required by foreign authorities or universities.",
+267|matrix: "Exhibit A: Certified Birth or Marriage Certificate. \nExhibit B: Certified copy of conflicting educational/professional record.",
+268|exhibits: {
+269|"A": "A certified copy of the Declarant's official Birth Certificate or Marriage Certificate.",
+270|"B": "A certified copy of the conflicting educational record or qualification certificate."
+271|},
+272|wording: "I am the same person named as [Name A] on my Birth Certificate and [Name B] on my Educational Diploma. I confirm that both names refer to one and the same person, namely myself, and I append a certified copy of my birth certificate marked Exhibit 'A' and a certified copy of my conflicting educational record marked Exhibit 'B'."
+273|},
+274|"7": {
+275|apostille: "International Apostille Required: No (Submitted strictly to HM Land Registry).",
+276|matrix: "Exhibit A: Ordnance Survey Map highlighted in red. \nExhibit B: Contemporary color photographs documenting fences/boundaries.",
+277|exhibits: {
+278|"A": "A copy of the Ordnance Survey Map highlighting the claimed parcel of land in red.",
+279|"B": "Contemporary color photographs documenting the physical, established boundaries of the claimed land."
+280|},
+281|wording: "Since [Year], I have been in undisputed, continuous, and exclusive open possession of the plot of land occupied without the consent, licence, or interruption of any third party. I have enclosed the land with fencing, maintained it, and used it exclusively for [e.g., parking] without paying rent to anyone. In support of this application, an Ordnance Survey Map highlighting the claimed land in red is now produced and shown to me marked Exhibit 'A', and contemporary color photographs documenting the physical, established boundaries are now produced and shown to me marked Exhibit 'B'."
+282|},
+283|"8": {
+284|apostille: "International Apostille Required: No (Submitted strictly to HM Land Registry / UK Courts).",
+285|matrix: "Exhibit A: Official property path route map.",
+286|exhibits: { "A": "An official property boundary map explicitly highlighting the access route utilized." },
+287|wording: "I have resided at my property since [Year] and have continuously used the access path leading over [Neighbouring Property Land] to gain entry to my property by vehicle and on foot. This access has been exercised openly, continuously, without force, without secrecy, and without permission for a period exceeding 20 years. I append an official property boundary map explicitly highlighting the access route utilized, which is now produced and shown to me marked Exhibit 'A'."
+288|},
+289|"9": {
+290|apostille: "International Apostille Required: Yes, occasionally (Depending on foreign immigration body criteria).",
+291|matrix: "Exhibit A: Multi-page financial bank statements. \nExhibit B: Fully executed employment contract. \nExhibit C: Multi-page P60 tax summaries.",
+292|exhibits: {
+293|"A": "True copies of the Declarant's recent financial bank statements.",
+294|"B": "A copy of the Declarant's current, fully executed employment contract.",
+295|"C": "True copies of the Declarant's recent P60 tax summaries confirming earnings."
+296|},
+297|wording: "I make this declaration to support the visa application of [Applicant Name], who is my [Relationship]. I declare that I have sufficient funds and resources to provide full financial support and accommodation for the applicant during their stay in the UK. In proof of my financial status, copies of my recent bank statements are now produced and shown to me marked Exhibit 'A', a copy of my current employment contract is marked Exhibit 'B', and copies of my recent P60 tax summaries are marked Exhibit 'C'."
+298|},
+299|"10": {
+300|apostille: "International Apostille Required: No (Submitted to UK probate firms or pension funds).",
+301|matrix: "Exhibit A: Joint utility bills. \nExhibit B: Joint tenancy agreement or mortgage deed. \nExhibit C: Joint bank records.",
+302|exhibits: {
+303|"A": "True copies of joint utility bills establishing shared address history.",
+304|"B": "A true copy of our joint tenancy agreement for the shared residential home.",
+305|"C": "Certified copies of our joint bank records spanning the cohabitation period."
+306|},
+307|wording: "I am the surviving partner of the deceased, [Deceased Name], who passed away on [Date]. We lived together continuously as life partners in a common household at my address from [Start Date] until their death, and I was financially dependent on them. In proof of our joint residence and shared financial life, copies of our joint utility bills are now produced and shown to me marked Exhibit 'A', a copy of our joint tenancy agreement is marked Exhibit 'B', and copies of our joint bank records are marked Exhibit 'C'."
+308|},
+309|"11": {
+310|apostille: "International Apostille Required: No (Submitted to UK Tenancy Deposit Protection Schemes).",
+311|matrix: "Exhibit A: Rental arrears ledger log. \nExhibit B: Independent check-out inventory report. \nExhibit C: Recorded delivery tracking sheets.",
+312|exhibits: {
+313|"A": "True copies of formal rental arrears logs and financial ledger balance maps.",
+314|
+315|"B": "A true copy of the formal independent check-out inventory report.",
+316|"C": "True copies of recorded delivery postal tracking receipts sent to the tenant."
+317|},
+318|wording: "I am the Landlord of the property at [Address], let under an Assured Shorthold Tenancy to [Tenant Name] which expired on [Date]. The tenant vacated the property owing funds and remains entirely uncontactable despite my reasonable attempts to establish communication. I make this declaration to claim the deposit from the TDS repository; I append my formal rent arrears logs marked Exhibit 'A', a copy of the check-out inventory report marked Exhibit 'B', and copies of my recorded postal tracking receipts marked Exhibit 'C'."
+319|},
+320|"12": {
+321|apostille: "International Apostille Required: No (Submitted to UK mortgage lenders and conveyancing solicitors).",
+322|matrix: "Exhibit A: Certified donor bank statement proving fund origin.",
+323|exhibits: { "A": "A certified bank statement proving the legitimate origin and bulk source of the gift." },
+324|wording: "I am making a financial gift of [£Amount] to my [Relationship], [Name], to assist with the purchase of [Property Address], and I hold no future equity or right of residency in the property. I confirm that this payment is an unconditional, non-repayable gift. In compliance with anti-money laundering regulations, my certified bank statement proving the legitimate origin and bulk source of these funds is now produced and shown to me marked Exhibit 'A'."
+325|},
+326|"13": {
+327|apostille: "International Apostille Required: No (Used by domestic mortgage lenders or insolvency pools).",
+328|matrix: "Exhibit A: Independent property valuation report. \nExhibit B: Up-to-date insolvency / bankruptcy search certificate.",
+329|exhibits: {
+330|"A": "A true copy of the independent professional property valuation report.",
+331|"B": "An up-to-date bankruptcy search certificate confirming the transferor's financial solvency."
+332|},
+333|wording: "I am transferring the property at [Address] to [Recipient Name] for the sum of [£Amount], which is below the open market value, and this is not being executed to defraud creditors. I declare that my total remaining assets exceed my total liabilities, and I am fully solvent at the date of this transfer. In support of this statement, an independent property valuation report is now produced and shown to me marked Exhibit 'A', and an up-to-date bankruptcy search certificate is now produced and shown to me marked Exhibit 'B'."
+334|},
+335|"14": {
+336|apostille: "International Apostille Required: No (Submitted to domestic UK financial asset holders).",
+337|matrix: "Exhibit A: Official copy of Death Certificate issued by the Registrar.",
+338|exhibits: { "A": "An official copy of the Death Certificate issued by the Registrar of Births, Deaths and Marriages." },
+339|wording: "I am the legal next of kin of the late [Deceased Name], who died intestate on [Date]. The total value of the deceased's estate does not exceed small estate limits, no formal Grant of Representation is being sought, and I request the release of closing bank funds. I append an official copy of the Death Certificate issued by the Registrar, which is now produced and shown to me marked Exhibit 'A'."
+340|},
+341|"15": {
+342|apostille: "International Apostille Required: No (Submitted to the UK Gender Recognition Panel).",
+343|matrix: "Exhibit A: Authorized diagnostic medical reports. \nExhibit B: Multi-page 2-year timeline archive of evidence living in acquired gender.",
+344|exhibits: {
+345|"A": "Official diagnostic medical reports issued by an authorized gender dysphoria specialist.",
+346|"B": "Extensive documentary evidence proving the Declarant has lived in their acquired gender for a minimum of two years."
+347|},
+348|wording: "I am applying for a Gender Recognition Certificate under the Gender Recognition Act 2004. I formally declare that I have lived in my acquired gender as a [Male/Female] since [Date] and intend to continue doing so until death. In support of my application, my official medical diagnostic reports are now produced and shown to me marked Exhibit 'A', and extensive documentary evidence proving I have lived in my acquired gender for a minimum of two years is marked Exhibit 'B'."
+349|},
+350|"16": {
+351|apostille: "International Apostille Required: Only if filing internationally via WIPO framework channels.",
+352|matrix: "Exhibit A: Technical blueprints / engineering diagrams. \nExhibit B: Draft design manifest or research log entries.",
+353|exhibits: {
+354|"A": "Technical blueprints and functional engineering drawings proving independent creation.",
+355|"B": "A true copy of the draft design manifest and proprietary research logs."
+356|},
+357|wording: "I am the sole inventor and author of the design/technology titled [Title] submitted under UK IPO Application Number [Number]. I declare that this work is entirely original to me and does not infringe upon any pre-existing proprietary rights. The technical blueprints and functional engineering drawings proving independent creation are now produced and shown to me marked Exhibit 'A', and a copy of the draft design manifest is marked Exhibit 'B'."
+358|},
+359|"17": {
+360|apostille: "International Apostille Required: Yes, frequently (Depending strictly on target country maritime customs laws).",
+361|matrix: "Exhibit A: Commercial shipping invoice with cargo values. \nExhibit B: Structural bills of lading. \nExhibit C: Itemised packaging manifest lists.",
+362|exhibits: {
+363|"A": "The official commercial shipping invoice detailing cargo transaction values.",
+364|"B": "True copies of the structural bills of lading verifying the transit itinerary.",
+365|"C": "Itemised packaging lists validating the complete physical contents of the shipment."
+366|},
+367|wording: "I am the shipping agent for [Company Name] regarding consignment reference [Number]. I solemnly declare that the goods contained in the shipment match the customs manifesto descriptions, originate wholly from [Country], and have a true commercial value of [Amount]. The official commercial shipping invoice is now produced and shown to me marked Exhibit 'A', copies of the bills of lading are marked Exhibit 'B', and the itemised packaging lists validating this shipment are marked Exhibit 'C'."
+368|},
+369|"18": {
+370|apostille: "International Apostille Required: Only if registering with a foreign professional medical/legal board.",
+371|matrix: "Exhibit A: Official criminal background check (DBS or ACRO report sheet).",
+372|exhibits: { "A": "An official up-to-date criminal record check certificate issued via the DBS or ACRO framework." },
+373|wording: "I am applying for admission to the professional register of the [Regulatory Body] and confirm that I have no criminal background or pending disciplinary investigations. I confirm that all representations made within my application pack are entirely true and honest. My official criminal record check certificate, consisting of an up-to-date Disclosure and Barring Service (DBS) or ACRO report, is now produced and shown to me marked Exhibit 'A'."
+374|},
+375|"19": {
+376|apostille: "International Apostille Required: No (Strictly handled by the UK Traffic Enforcement Centre).",
+377|matrix: "Exhibit A: Tenancy agreement for new address. \nExhibit B: Updated DVLA V5C Logbook. \nExhibit C: Mail Redirection order. \nExhibit D: Transition utility bills.",
+378|exhibits: {
+379|"A": "A copy of the signed tenancy agreement or completion statement for the new property.",
+380|"B": "My updated DVLA V5C Vehicle Registration Logbook showing the official address change date.",
+381|"C": "A copy of my Royal Mail redirection confirmation order spanning the transition period.",
+382|"D": "Contemporary utility bills confirming the exact dates of residence transition."
+383|},
+384|wording: "My reasons for filing outside the given time limits are as follows: I did not receive the initial statutory notifications or penalty charge notices because I changed residential addresses. I only became aware of the matter when enforcement action was initiated. In strict verification of my out-of-time status and historical address change, I attach key evidence. This documentary proof consists of my official tenancy agreement for my new property marked Exhibit 'A', my updated DVLA V5C Vehicle Registration Logbook marked Exhibit 'B', a copy of my Royal Mail redirection confirmation order marked Exhibit 'C', and contemporary utility bills covering the transition period marked Exhibit 'D'."
+385|}
+386|};
+387|
+388|<script>
+389|// === PROCESSING & SELECTION SYNC PIPELINE ===
+390|
+391|// Triggered when the main 18-type select element flips
+392|function syncSelectedType() {
+393|const selectedId = document.getElementById('templateSelect').value;
+394|const data = legalDatabase[selectedId];
+395|
+396|// Update structural text displays
+397|document.getElementById('apostilleInfo').innerText = data.apostille;
+398|document.getElementById('statementBody').value = data.wording;
+399|
+400|// Dynamically rebuild Selectable Box 1: Attachment Matrix Profile
+401|const matrixSelect = document.getElementById('matrixSelect');
+402|matrixSelect.innerHTML = "";
+403|data.matrixOptions.forEach(opt => {
+404|let entry = document.createElement("option");
+405|entry.text = opt;
+406|entry.value = opt;
+407|matrixSelect.add(entry);
+408|});
+409|
+410|// Dynamically rebuild Selectable Box 2: Cover Item Descriptions
+411|const descSelect = document.getElementById('exDescSelect');
+412|descSelect.innerHTML = "";
+413|Object.keys(data.exhibits).forEach(letter => {
+414|let entry = document.createElement("option");
+415|entry.text = [Exhibit ${letter}] - ${data.exhibits[letter]};
+416|entry.value = letter;
+417|descSelect.add(entry);
+418|});
+419|
+420|// Match Exhibit Letter configuration selection to first index option
+421|if (Object.keys(data.exhibits).length > 0) {
+422|document.getElementById('exLetter').value = Object.keys(data.exhibits)[0];
+423|}
+424|
+425|// Execute downward cascades to output target templates
+426|syncExhibitLetterChange();
+427|}
+428|
+429|// Triggered when user alters Selectable Matrix dropdown selection manually
+430|function syncMatrixSelection() {
+431|const selectedText = document.getElementById('matrixSelect').value;
+432|// Extract letter designation character (e.g. from "Exhibit B: ...")
+433|if (selectedText.includes("Exhibit ")) {
+434|const letter = selectedText.split("Exhibit ")[1].charAt(0);
+435|document.getElementById('exLetter').value = letter;
+436|syncExhibitLetterChange();
+437|}
+438|}
+439|
+440|// Triggered when user explicitly changes Exhibit Letter A, B, C, D filter
+441|function syncExhibitLetterChange() {
+442|const selectedId = document.getElementById('templateSelect').value;
+443|const letter = document.getElementById('exLetter').value;
+444|const data = legalDatabase[selectedId];
+445|const descSelect = document.getElementById('exDescSelect');
+446|
+447|// Automatically align description select dropdown box match criteria
+448|if (data.exhibits[letter]) {
+449|descSelect.value = letter;
+450|}
+451|updateDocuments();
+452|} [1]
+453|
+454|// Triggered when user manually alters Selectable Cover Item Description dropdown
+455|function syncCoverDescriptionSelection() {
+456|const targetLetter = document.getElementById('exDescSelect').value;
+457|document.getElementById('exLetter').value = targetLetter;
+458|updateDocuments();
+459|}
+460|
+461|// Computes core framework strings and prints hard content layers live to screen workspace
+462|function updateDocuments() {
+463|const name = document.getElementById('fullName').value || '[NAME]';
+464|const address = document.getElementById('address').value || '[ADDRESS]';
+465|const occupation = document.getElementById('occupation').value || '[OCCUPATION]';
+466|const letter = document.getElementById('exLetter').value;
+467|const pages = document.getElementById('pageCount').value || '1';
+468|const bodyText = document.getElementById('statementBody').value;
+469|const selectedId = document.getElementById('templateSelect').value;
+470|const data = legalDatabase[selectedId]; [1]
+471|
+472|// Determine current exhibit text description based on layout values
+473|let desc = "Supplementary documentation verifying declaration parameters.";
+474|if (data.exhibits && data.exhibits[letter]) {
+475|desc = data.exhibits[letter];
+476|}
+477|
+478|let decHtml = "";
+479|if (selectedId === "19") {
+480|decHtml = IN THE COUNTY COURT AT THE TRAFFIC ENFORCEMENT CENTRE (TEC)\nAPPLICATION TO FILE A STATUTORY DECLARATION OUT OF TIME (FORM PE2 / PE3)\n\nDeclarant Applicant: ${name}\nResidential Address: ${address}\nEmployment Reference: ${occupation}\n\nREASONS FOR FILING OUT OF TIME STATUTORY PARAGRAPHS:\n${bodyText}\n\nWARNING: Filing a false declaration knowingly and wilfully is a criminal offence under Section 5 of the Perjury Act 1911.\n\nDeclared and Signed by the applicant: ........................................... Dated: ............................\n\nBefore me,\nSignature of Solicitor / Authorized Court Officer: ............................................................\nName of Witnessing Professional: ................................................................;
+481|} else {
+482|decHtml = STATUTORY DECLARATION\n(Under the Statutory Declarations Act 1835)\n\nI, ${name}, of ${address}, occupying the position of ${occupation}, do solemnly and sincerely declare as follows:\n\n${bodyText}\n\nAND I make this solemn declaration conscientiously believing the same to be true and by virtue of the provisions of the Statutory Declarations Act 1835.\n\nDeclared at: ........................................................................\nThis ............. day of .................................... 20...\n\nSignature of Declarant: ............................................................\n\nBefore me,\nSignature of Solicitor / Commissioner for Oaths: ............................................................\nName of Solicitor (Printed): ................................................................\nName of Firm / Court Seal: ..................................................................;
+483|}
+484|
+485|const exHtml = ` EXHIBIT "${letter}"\n\n\nThis is the Exhibit marked "${letter}" referred to in the Statutory Declaration of \n${name.toUpperCase()}.\n\nThe attached documentation is a multi-page file securely compiled and consisting of exactly ${pages} page(s) in total.\n\n\nDeclared before me this ............. day of .................................... 20...\n\n\nAt Office Address: ...................................................................................\n ...................................................................................\n\n\n\n.......................................................................................\nSignature of Authorised Solicitor / Commissioner for Oaths\n\n
+[End of file]

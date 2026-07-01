@@ -21,22 +21,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4.2.2 # Minor bump resolves Node 24 warning runtime constraints
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # Upgraded to match GitHub's primary modern runtime
-          cache: 'npm'
+          node-version: 24
+          # Removed the cache line that was causing the error
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install # Changed from npm ci to allow installation without a lock file
 
       - name: Build Project
         run: npm run build
 
       - name: Upload Build Artifacts
-        uses: actions/upload-pages-artifact@v3.0.1 # Pointing to the Node 24 patched release
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: './dist' 
 

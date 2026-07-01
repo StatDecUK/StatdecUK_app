@@ -1,6 +1,3 @@
-"https://StatdecUK.github.io/StatdecUK_app"
-FILE:/app/package.json
-/app/package.json:
 1|{
 2|  "name": "StatdecUK",
 3|  "version": "0.1.0",

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   style: {
     postcss: {
@@ -5,13 +7,12 @@ module.exports = {
       plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
-        const path = require('path'),
-  webpack:
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
-
       ]
     }
   },
+  webpack: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    }
+  }
 };

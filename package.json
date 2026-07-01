@@ -1,5 +1,5 @@
 "https://StatdecUK.github.io/StatdecUK_app"
-FILE: /app/frontend/package.json
+FILE:/app/frontend/package.json
 /app/frontend/package.json:
 1|{
 2|  "name": "StatdecUK",

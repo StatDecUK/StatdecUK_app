@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "cd /app/frontend && craco build",
     "test": "craco test"
   },
   "devDependencies": {

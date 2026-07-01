@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "cd /app/frontend && craco build",
+    "build": "cd /StatdecUK_aa && craco build",
     "test": "craco test"
   },
   "devDependencies": {

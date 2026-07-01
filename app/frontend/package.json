@@ -1,3 +1,5 @@
+"homepage": "https://<StatdecUK>.github.io/<your-StatdecUK_app>",
+
 ===FILE: /app/frontend/package.json
 /app/frontend/package.json:
 1|{
@@ -66,6 +68,8 @@
 64|    "start": "craco start",
 65|    "build": "craco build",
 66|    "test": "craco test"
+       "predeploy": "npm run build",
+       "deploy": "gh-pages -d dist"
 67|  },
 68|  "browserslist": {
 69|    "production": [

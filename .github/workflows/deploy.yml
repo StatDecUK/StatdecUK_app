@@ -20,10 +20,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     
-    # This instructs GitHub to run all npm commands inside your 'app' folder
+    # This instructs GitHub to run all npm commands inside your './(root)'' folder
     defaults:
       run:
-        working-directory: ./app 
+        working-directory: ./(root)
 
     steps:
       - name: Checkout Code

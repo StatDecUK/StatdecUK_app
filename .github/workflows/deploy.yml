@@ -19,6 +19,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
+    # This instructs GitHub to run all npm commands inside your 'app' folder
+    defaults:
+      run:
+        working-directory: ./app 
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4.2.2
@@ -27,18 +33,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          # Removed the cache line that was causing the error
 
       - name: Install Dependencies
-        run: npm install # Changed from npm ci to allow installation without a lock file
+        run: npm install 
 
       - name: Build Project
         run: npm run build
 
+      # This points to the compiled folder inside your 'app' directory
+      # IMPORTANT: If using Create React App instead of Vite, change '/dist' to '/build'
       - name: Upload Build Artifacts
         uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: './dist' 
+          path: './app/dist' 
 
       - name: Deploy to GitHub Pages
         id: deployment

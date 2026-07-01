@@ -2,7 +2,7 @@
   "name": "statdecuk-app",
   "version": "1.0.0",
   "homepage": "https://StatdecUK.github.io/StatdecUK_app",
-  "dependencies": {
+  "dependencies":
     ...
 ===FILE: /app/frontend/package.json
 /app/frontend/package.json:

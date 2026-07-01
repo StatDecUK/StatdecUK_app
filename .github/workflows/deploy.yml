@@ -23,7 +23,7 @@ jobs:
     # This instructs GitHub to run all npm commands inside your './(root)'' folder
     defaults:
       run:
-        working-directory: ./(root)
+        working-directory: ./StatdecUK_app
 
     steps:
       - name: Checkout Code

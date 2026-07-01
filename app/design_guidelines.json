@@ -1,0 +1,81 @@
+
+Action: {"type": "mcp_tool", "tool_name": "mcp_view_bulk", "tool_arguments": {"paths": ["/app/design_guidelines.json", "/app/backend/server.py", "/app/backend/.env", "/app/frontend/.env", "/app/backend/requirements.txt", "/app/frontend/package.json", "/app/frontend/src/App.js", "/app/frontend/src/index.css", "/app/frontend/src/App.css"]}}
+Observation: ===FILE: /app/design_guidelines.json
+/app/design_guidelines.json:
+1|{
+2|  "theme": "Light",
+3|  "archetype": "4 (Swiss & High-Contrast) - Refined for Legal Tech",
+4|  "typography": {
+5|    "headings": {
+6|      "family": "Cormorant Garamond, serif",
+7|      "weights": ["400", "600"],
+8|      "classes": "font-serif tracking-tight text-slate-900"
+9|    },
+10|    "body": {
+11|      "family": "IBM Plex Sans, sans-serif",
+12|      "weights": ["400", "500", "600"],
+13|      "classes": "font-sans text-slate-800 leading-relaxed"
+14|    },
+15|    "monospace_for_docs": {
+16|      "family": "IBM Plex Mono, monospace",
+17|      "classes": "font-mono text-sm"
+18|    }
+19|  },
+20|  "colors": {
+21|    "background": "#FAFAFA",
+22|    "surface": "#FFFFFF",
+23|    "primary": "#0A0A0A",
+24|    "primary_hover": "#262626",
+25|    "accent": "#0047AB",
+26|    "text_main": "#0A0A0A",
+27|    "text_muted": "#525252",
+28|    "border": "#E5E5E5",
+29|    "success": "#166534",
+30|    "danger": "#DC2626"
+31|  },
+32|  "spacing": {
+33|    "general": "Generous spacing. Use p-8 or p-12 for major sections.",
+34|    "forms": "Use gap-6 for form groups. Inputs should be spacious with p-3.",
+35|    "document_preview": "Padding around the document should be p-8 to simulate A4 margins."
+36|  },
+37|  "components": {
+38|    "buttons": "Square or rounded-sm, completely flat. Use sharp edges. Primary buttons are bg-black text-white hover:bg-slate-800. Secondary are border border-border bg-transparent hover:bg-slate-50.",
+39|    "cards": "border border-border bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow duration-200",
+40|    "inputs": "Shadcn inputs customized to have rounded-sm, border-slate-300, focus:ring-1 focus:ring-black",
+41|    "header": "Glassmorphism: backdrop-blur-xl bg-white/80 border-b border-border/40 sticky top-0 z-50",
+42|    "tabs": "Clean underline tabs for selecting between 'Declaration Preview' and 'Exhibits Preview'",
+43|    "sidebar": "Left panel for form inputs, w-full md:w-1/3 lg:w-1/4. Right panel for live document preview.",
+44|    "exhibit_selector": "Use a group of custom checkbox cards or segmented controls allowing multiple selections (A, B, C, D)."
+45|  },
+46|  "animations": {
+47|    "hover": "Subtle opacity and translate-y transitions. duration-200 ease-out.",
+48|    "page_load": "Framer motion staggered fade-in up for dashboard cards.",
+49|    "document_update": "Subtle flash or highlight when the document preview updates based on form input."
+50|  },
+51|  "layout_strategy": {
+52|    "dashboard": "Bento Grid Protocol: Mode B (Control Room) for saved declarations. grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6. Clear empty states.",
+53|    "editor": "Split screen layout. Left side: Form controls (scrollable, distinct gray background or contained in a panel). Right side: Document preview pane (sticky/scrollable, gray background #F3F4F6 with white A4 paper shadow)."
+54|  },
+55|  "images": {
+56|    "auth_background": {
+57|      "url": "https://images.pexels.com/photos/14505030/pexels-photo-14505030.jpeg",
+58|      "description": "Elegant Gothic interior hallway at Oxford University. Use as the login/signup split screen hero background. Add a bg-black/40 overlay for contrast."
+59|    },
+60|    "empty_state": {
+61|      "url": "https://images.pexels.com/photos/48148/document-agreement-documents-sign-48148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+62|      "description": "Close-up of a hand signing a legal document. Use for empty state in dashboard (e.g., 'No declarations created yet'). Make it greyscale or reduced opacity."
+63|    }
+64|  },
+65|  "icons_library": "@phosphor-icons/react",
+66|  "testing": "All interactive elements MUST have data-testid attributes using kebab-case role-based names (e.g., data-testid='login-submit-button').",
+67|  "specific_instructions_for_main_agent": [
+68|    "Install required fonts: Cormorant Garamond, IBM Plex Sans.",
+69|    "Implement client-side PDF export using html2pdf.js or jspdf + html2canvas to capture the A4 preview element accurately, maintaining formatting.",
+70|    "The multi-exhibit selector must allow simultaneous selection. For each selected exhibit (A, B, C, D), dynamically generate and display a separate cover sheet in the preview pane (or via Tabs).",
+71|    "When exporting PDF, ensure both the main statutory declaration and all selected exhibit cover sheets are combined into a single PDF or downloaded as a zip.",
+72|    "Use Shadcn Select for the 19 statutory declaration types, organized with grouped optgroups for easy navigation.",
+73|    "The document preview pane must look like physical A4 paper. Use a wrapper with `aspect-[1/1.414] max-w-3xl mx-auto bg-white shadow-xl p-12`.",
+74|    "For Authentication, implement basic JWT standard flow + Emergent Google Login wrapper.",
+75|    "Design aesthetic should convey: Authority, gravitas, trust, and precision. No generic startup gradients."
+76|  ]
+77|}

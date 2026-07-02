@@ -1,6 +1,3 @@
-Now build all the frontend files in parallel:
-Action: file_editor create /app/frontend/src/lib/legalDatabase.js --file-text "// UK Statutory Declaration legal database — 19 declaration types
-// Migrated from the original Generator v9 HTML
 export const declarationTypes = [
   {
     group: \"Core 10 Common Types\",

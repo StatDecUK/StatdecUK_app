@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/frontend/src/pages/AuthCallback.jsx --file-text "import { useEffect, useRef } from \"react\";
+"import { useEffect, useRef } from \"react\";
 import { useNavigate } from \"react-router-dom\";
 import { api, extractError } from \"@/lib/api\";
 import { useAuth } from \"@/context/AuthContext\";

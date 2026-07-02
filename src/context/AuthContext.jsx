@@ -1,5 +1,5 @@
-"import { createContext, useContext, useEffect, useState, useCallback } from \"react\";
-import { api, extractError } from \"@/lib/api\";
+import { createContext, useContext, useEffect, useState, useCallback } from \"react\";
+import { api, extractError } from \"./lib/api\";
 
 const AuthContext = createContext(null);
 

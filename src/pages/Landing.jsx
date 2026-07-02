@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/frontend/src/pages/Landing.jsx --file-text "import { Link } from \"react-router-dom\";
+"import { Link } from \"react-router-dom\";
 import Layout from \"@/components/Layout\";
 import { Button } from \"@/components/ui/button\";
 import { ArrowRight, Check, Shield, FileText, Download } from \"lucide-react\";

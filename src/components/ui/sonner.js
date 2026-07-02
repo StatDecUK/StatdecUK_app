@@ -1,4 +1,4 @@
-import { Toaster as Sonner } from "sonner";
+import { Toaster as Sonner } from "./sonner";
 
 const Toaster = ({ ...props }) => {
   // Directly export the custom-styled toaster component matching your system theme configuration

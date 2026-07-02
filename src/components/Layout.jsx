@@ -1,7 +1,6 @@
-Now create the components and pages:
-Action: file_editor create /app/frontend/src/components/Layout.jsx --file-text "import { Link, useNavigate } from \"react-router-dom\";
-import { useAuth } from \"@/context/AuthContext\";
-import { Button } from \"@/components/ui/button\";
+import { Link, useNavigate } from \"react-router-dom\";
+import { useAuth } from \"./context/AuthContext\";
+import { Button } from \"./components/ui/button\";
 import { LogOut, Scale } from \"lucide-react\";
 
 export default function Layout({ children }) {

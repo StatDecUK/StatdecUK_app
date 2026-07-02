@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/frontend/src/context/AuthContext.jsx --file-text "import { createContext, useContext, useEffect, useState, useCallback } from \"react\";
+"import { createContext, useContext, useEffect, useState, useCallback } from \"react\";
 import { api, extractError } from \"@/lib/api\";
 
 const AuthContext = createContext(null);

@@ -1,5 +1,4 @@
-Now the Dashboard, Editor, Landing, and App.js:
-Action: file_editor create /app/frontend/src/pages/Dashboard.jsx --file-text "import { useEffect, useState } from \"react\";
+"import { useEffect, useState } from \"react\";
 import { Link, useNavigate } from \"react-router-dom\";
 import Layout from \"@/components/Layout\";
 import { api, extractError } from \"@/lib/api\";
